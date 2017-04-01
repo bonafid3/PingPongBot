@@ -1,0 +1,115 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="Executable_1" target="8" version="2">
+  <project Name="Executable_1">
+    <configuration
+      Name="Common"
+      Placement="Flash"
+      Target="AT91SAM7S256"
+      arm_architecture="v4T"
+      arm_core_type="ARM7TDMI"
+      arm_simulator_memory_simulation_filename="$(PackagesDir)/targets/Atmel_AT91SAM7/AT91SAM7SimulatorMemory.dll"
+      arm_simulator_memory_simulation_parameter="0x40000;0x10000"
+      arm_target_debug_interface_type="ARM7TDI"
+      arm_target_loader_parameter="18432000"
+      c_preprocessor_definitions="STARTUP_FROM_RESET"
+      gcc_entry_point="reset_handler"
+      linker_memory_map_file="$(PackagesDir)/targets/Atmel_AT91SAM7/AT91SAM7S256_MemoryMap.xml"
+      linker_output_format="bin"
+      linker_printf_fp_enabled="Yes"
+      linker_section_placement_file="$(StudioDir)/targets/flash_placement.xml"
+      oscillator_frequency="18.432MHz"
+      project_directory=""
+      project_type="Executable"
+      property_groups_file_path="$(PackagesDir)/targets/Atmel_AT91SAM7/propertyGroups.xml" />
+    <configuration
+      Name="RAM"
+      Placement="RAM"
+      linker_section_placement_file="$(StudioDir)/targets/sram_placement.xml"
+      target_reset_script="RAMReset()" />
+    <configuration
+      Name="Flash"
+      Placement="Flash"
+      arm_target_flash_loader_file_path="$(PackagesDir)/targets/Atmel_AT91SAM7/Release/Loader_rpc.elf"
+      linker_section_placement_file="$(StudioDir)/targets/flash_placement.xml"
+      target_reset_script="FLASHReset()" />
+    <folder Name="System Files">
+      <file file_name="$(PackagesDir)/targets/Atmel_AT91SAM7/AT91SAM7_Target.js">
+        <configuration Name="Common" file_type="Reset Script" />
+      </file>
+      <file file_name="$(StudioDir)/source/crt0.s" />
+      <file file_name="$(PackagesDir)/targets/Atmel_AT91SAM7/AT91SAM7_Startup.s" />
+      <file file_name="$(PackagesDir)/targets/Atmel_AT91SAM7/AIC.c" />
+      <file file_name="$(PackagesDir)/targets/Atmel_AT91SAM7/AIC_irq_handler.s" />
+      <file file_name="$(PackagesDir)/targets/Atmel_AT91SAM7/ctl_at91sam7.c" />
+    </folder>
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <file file_name="main.c" />
+      <file file_name="at91sam7s256.h" />
+      <file file_name="lib_AT91SAM7S256.h" />
+    </folder>
+    <configuration
+      Name="Debug"
+      Placement="Flash"
+      linker_section_placement_file="$(StudioDir)/targets/flash_placement.xml" />
+    <file file_name="index" />
+  </project>
+  <configuration
+    Name="ARM RAM Debug"
+    inherited_configurations="ARM;RAM;Debug" />
+  <configuration
+    Name="ARM"
+    Platform="ARM"
+    arm_instruction_set="ARM"
+    arm_library_instruction_set="ARM"
+    c_preprocessor_definitions="__ARM"
+    hidden="Yes" />
+  <configuration
+    Name="RAM"
+    c_preprocessor_definitions="__RAM_BUILD"
+    hidden="Yes" />
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_optimization_level="None"
+    hidden="Yes" />
+  <configuration
+    Name="ARM RAM Release"
+    inherited_configurations="ARM;RAM;Release" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 1"
+    gcc_optimization_level="Level 1"
+    hidden="Yes" />
+  <configuration
+    Name="THUMB RAM Debug"
+    inherited_configurations="THUMB;RAM;Debug" />
+  <configuration
+    Name="THUMB"
+    Platform="ARM"
+    arm_instruction_set="Thumb"
+    arm_library_instruction_set="Thumb"
+    c_preprocessor_definitions="__THUMB"
+    hidden="Yes" />
+  <configuration
+    Name="THUMB RAM Release"
+    inherited_configurations="THUMB;RAM;Release" />
+  <configuration
+    Name="ARM Flash Debug"
+    inherited_configurations="Flash;Debug;ARM" />
+  <configuration
+    Name="Flash"
+    c_preprocessor_definitions="__FLASH_BUILD"
+    hidden="Yes" />
+  <configuration
+    Name="ARM Flash Release"
+    inherited_configurations="ARM;Flash;Release" />
+  <configuration
+    Name="THUMB Flash Debug"
+    inherited_configurations="THUMB;Flash;Debug" />
+  <configuration
+    Name="THUMB Flash Release"
+    inherited_configurations="THUMB;Flash;Release" />
+</solution>

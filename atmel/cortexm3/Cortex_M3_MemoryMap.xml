@@ -1,0 +1,353 @@
+<!DOCTYPE Board_Memory_Definition_File>
+<Root name="Cortex-M3">
+  <MemorySegment start="$(FLASH_START:0x00000000)" size="$(FLASH_SIZE:0x40000)" access="ReadWrite" name="FLASH" />
+  <MemorySegment start="$(SRAM_START:0x20000000)" size="$(SRAM_SIZE:0xC000)" access="Read/Write" name="SRAM" />
+  <MemorySegment size="0x1000" access="Read/Write" start="0xE000E000" name="CM3_System_Control_Space">
+    <RegisterGroup start="0xE000E000" name="SCB">
+      <Register start="0xE000E004" name="ICTR" aka="Interrupt_Control_Type" access="ReadOnly" description="Interrupt Controller Type Register">
+        <BitField size="5" start="0" name="INTLINESNUM" description="Total number of interrupt lines in groups">
+          <Enum name="0...32" start="0x0" />
+          <Enum name="33...64" start="0x1" />
+          <Enum name="65...96" start="0x2" />
+          <Enum name="97...128" start="0x3" />
+          <Enum name="129...160" start="0x4" />
+          <Enum name="161...192" start="0x5" />
+          <Enum name="193...224" start="0x6" />
+          <Enum name="225...256" start="0x7" />
+        </BitField>
+      </Register>
+      <Register start="0xE000E008" name="ACTLR" description="Auxiliary Control Register">
+        <BitField size="1" start="0" name="DISMCYCINT" description="Disable load/store multiple" />
+        <BitField size="1" start="1" name="DISDEFWBUF" description="Disable write buffer" />
+        <BitField size="1" start="2" name="DISFOLD" description="Disable IT folding" />
+      </Register>
+    </RegisterGroup>
+    <RegisterGroup start="0xE000E010" name="SysTick" description="24Bit System Tick Timer for use in RTOS">
+      <Register start="0xE000E010" name="SYST_CSR" aka="SysTick_Control_And_Status" description="SysTick Control and Status Register">
+        <BitField size="1" name="COUNTFLAG" start="16" description="Counter Flag" />
+        <BitField size="1" name="CLKSOURCE" start="2" description="Timer Clock Source" />
+        <BitField size="1" name="TICKINT" start="1" description="Tick Interrupt Enable" />
+        <BitField size="1" name="ENABLE" start="0" description="Enable SysTick Timer" />
+      </Register>
+      <Register start="0xE000E014" name="SYST_RVR" aka="SysTick_Reload_Value" description="SysTick Reload Value Register">
+        <BitField size="24" name="RELOAD" start="0" description="Value to auto reload SysTick after reaching zero" />
+      </Register>
+      <Register start="0xE000E018" name="SYST_CVR" aka="SysTick_Current_Value" description="SysTick Current Value Register">
+        <BitField size="24" name="CURRENT" start="0" description="Current value" />
+      </Register>
+      <Register start="0xE000E01C" name="SYST_CALIB" aka="SysTick_Calibration_Value" access="ReadOnly" description="SysTick Calibration Value Register">
+        <BitField size="1" name="NOREF" start="31" description="No Ref" />
+        <BitField size="1" name="SKEW" start="30" description="Clock Skew" />
+        <BitField size="24" name="TENMS" start="0" description="Reload value to use for 10ms timing" />
+      </Register>
+    </RegisterGroup>
+    <RegisterGroup start="0xE000E100" name="NVIC" description="Nested Vectored Interrupt Controller">
+      <Register start="0xE000E100" name="NVIC_ISER0" aka="Irq_0_to_31_Set_Enable" description="Interrupt Set-Enable Register 0" />
+      <Register start="0xE000E104" name="NVIC_ISER1" aka="Irq_32_to_63_Set_Enable" description="Interrupt Set-Enable Register 1" />
+      <Register start="0xE000E180" name="NVIC_ICER0" aka="Irq_0_to_31_Clear_Enable" description="Interrupt Clear-Enable Register 0" />
+      <Register start="0xE000E184" name="NVIC_ICER1" aka="Irq_32_to_63_Clear_Enable" description="Interrupt Clear-Enable Register 1" />
+      <Register start="0xE000E200" name="NVIC_ISPR0" aka="Irq_0_to_31_Set_Pending" description="Interrupt Set-Pending Register 0" />
+      <Register start="0xE000E204" name="NVIC_ISPR1" aka="Irq_32_to_63_Set_Pending" description="Interrupt Set-Pending Register 1" />
+      <Register start="0xE000E280" name="NVIC_ICPR0" aka="Irq_0_to_31_Clear_Pending" description="Interrupt Clear-Pending Register 0" />
+      <Register start="0xE000E284" name="NVIC_ICPR1" aka="Irq_32_to_63_Clear_Pending" description="Interrupt Clear-Pending Register 1" />
+      <Register start="0xE000E300" name="NVIC_IABR0" aka="Irq_0_to_31_Active_Bit" access="ReadOnly" description="Interrupt Active Bit Register 0" />
+      <Register start="0xE000E304" name="NVIC_IABR1" aka="Irq_32_to_63_Active_Bit" access="ReadOnly" description="Interrupt Active Bit Register 1" />
+      <Register start="0xE000E400" name="NVIC_IPR0" aka="Irq_0_to_3_Priority" description="Interrupt Priority Register 0">
+        <BitField size="4" name="PRI_0" start="4" />
+        <BitField size="4" name="PRI_1" start="12" />
+        <BitField size="4" name="PRI_2" start="20" />
+        <BitField size="4" name="PRI_3" start="28" />
+      </Register>
+      <Register start="0xE000E404" name="NVIC_IPR1" aka="Irq_4_to_7_Priority" description="Interrupt Priority Register 1">
+        <BitField size="4" name="PRI_4" start="4" />
+        <BitField size="4" name="PRI_5" start="12" />
+        <BitField size="4" name="PRI_6" start="20" />
+        <BitField size="4" name="PRI_7" start="28" />
+      </Register>
+      <Register start="0xE000E408" name="NVIC_IPR2" aka="Irq_8_to_11_Priority" description="Interrupt Priority Register 2">
+        <BitField size="4" name="PRI_8" start="4" />
+        <BitField size="4" name="PRI_9" start="12" />
+        <BitField size="4" name="PRI_10" start="20" />
+        <BitField size="4" name="PRI_11" start="28" />
+      </Register>
+      <Register start="0xE000E40C" name="NVIC_IPR3" aka="Irq_12_to_15_Priority" description="Interrupt Priority Register 3">
+        <BitField size="4" name="PRI_12" start="4" />
+        <BitField size="4" name="PRI_13" start="12" />
+        <BitField size="4" name="PRI_14" start="20" />
+        <BitField size="4" name="PRI_15" start="28" />
+      </Register>
+      <Register start="0xE000E410" name="NVIC_IPR4" aka="Irq_16_to_19_Priority" description="Interrupt Priority Register 4">
+        <BitField size="4" name="PRI_16" start="4" />
+        <BitField size="4" name="PRI_17" start="12" />
+        <BitField size="4" name="PRI_18" start="20" />
+        <BitField size="4" name="PRI_19" start="28" />
+      </Register>
+      <Register start="0xE000E414" name="NVIC_IPR5" aka="Irq_20_to_23_Priority" description="Interrupt Priority Register 5">
+        <BitField size="4" name="PRI_20" start="4" />
+        <BitField size="4" name="PRI_21" start="12" />
+        <BitField size="4" name="PRI_22" start="20" />
+        <BitField size="4" name="PRI_23" start="28" />
+      </Register>
+      <Register start="0xE000E418" name="NVIC_IPR6" aka="Irq_24_to_27_Priority" description="Interrupt Priority Register 6">
+        <BitField size="4" name="PRI_24" start="4" />
+        <BitField size="4" name="PRI_25" start="12" />
+        <BitField size="4" name="PRI_26" start="20" />
+        <BitField size="4" name="PRI_27" start="28" />
+      </Register>
+      <Register start="0xE000E41C" name="NVIC_IPR7" aka="Irq_28_to_31_Priority" description="Interrupt Priority Register 7">
+        <BitField size="4" name="PRI_28" start="4" />
+        <BitField size="4" name="PRI_29" start="12" />
+        <BitField size="4" name="PRI_30" start="20" />
+        <BitField size="4" name="PRI_31" start="28" />
+      </Register>
+      <Register start="0xE000E420" name="NVIC_IPR8" aka="Irq_32_to_35_Priority" description="Interrupt Priority Register 8">
+        <BitField size="4" name="PRI_32" start="4" />
+        <BitField size="4" name="PRI_33" start="12" />
+        <BitField size="4" name="PRI_34" start="20" />
+        <BitField size="4" name="PRI_35" start="28" />
+      </Register>
+      <Register start="0xE000E424" name="NVIC_IPR9" aka="Irq_36_to_39_Priority" description="Interrupt Priority Register 9">
+        <BitField size="4" name="PRI_36" start="4" />
+        <BitField size="4" name="PRI_37" start="12" />
+        <BitField size="4" name="PRI_38" start="20" />
+        <BitField size="4" name="PRI_39" start="28" />
+      </Register>
+      <Register start="0xE000E428" name="NVIC_IPR10" aka="Irq_40_to_43_Priority" description="Interrupt Priority Register 10">
+        <BitField size="4" name="PRI_40" start="4" />
+        <BitField size="4" name="PRI_41" start="12" />
+        <BitField size="4" name="PRI_42" start="20" />
+        <BitField size="4" name="PRI_43" start="28" />
+      </Register>
+      <Register start="0xE000E42C" name="NVIC_IPR11" aka="Irq_44_to_47_Priority" description="Interrupt Priority Register 11">
+        <BitField size="4" name="PRI_44" start="4" />
+        <BitField size="4" name="PRI_45" start="12" />
+        <BitField size="4" name="PRI_46" start="20" />
+        <BitField size="4" name="PRI_47" start="28" />
+      </Register>
+      <Register start="0xE000E430" name="NVIC_IPR12" aka="Irq_48_to_51_Priority" description="Interrupt Priority Register 12">
+        <BitField size="4" name="PRI_48" start="4" />
+        <BitField size="4" name="PRI_49" start="12" />
+        <BitField size="4" name="PRI_50" start="20" />
+        <BitField size="4" name="PRI_51" start="28" />
+      </Register>
+      <Register start="0xE000E434" name="NVIC_IPR13" aka="Irq_52_to_55_Priority" description="Interrupt Priority Register 13">
+        <BitField size="4" name="PRI_52" start="4" />
+        <BitField size="4" name="PRI_53" start="12" />
+        <BitField size="4" name="PRI_54" start="20" />
+        <BitField size="4" name="PRI_55" start="28" />
+      </Register>
+      <Register start="0xE000E438" name="NVIC_IPR14" aka="Irq_56_to_59_Priority" description="Interrupt Priority Register 14">
+        <BitField size="4" name="PRI_56" start="4" />
+        <BitField size="4" name="PRI_57" start="12" />
+        <BitField size="4" name="PRI_58" start="20" />
+        <BitField size="4" name="PRI_59" start="28" />
+      </Register>
+      <Register start="0xE000E43C" name="NVIC_IPR15" aka="Irq_60_to_63_Priority" description="Interrupt Priority Register 15">
+        <BitField size="4" name="PRI_60" start="4" />
+        <BitField size="4" name="PRI_61" start="12" />
+        <BitField size="4" name="PRI_62" start="20" />
+        <BitField size="4" name="PRI_63" start="28" />
+      </Register>
+    </RegisterGroup>
+    <RegisterGroup start="0xE000ED00" name="SCB">
+      <Register start="0xE000ED04" name="ICSR" aka="Interrupt_Control_State" description="Interrupt Control and State Register">
+        <BitField size="1" name="NMIPENDSET" start="31" description="NMI set-pending bit" />
+        <BitField size="1" name="PENDSVSET" start="28" description="PendSV Set-Pending Bit" />
+        <BitField size="1" name="PENDSVCLR" start="27" description="PendSV Clear-Pending Bit" />
+        <BitField size="1" name="PENDSTSET" start="26" description="SysTick Exception Set-Pending Bit" />
+        <BitField size="1" name="PENDSTCLR" start="25" description="SysTick Exception Clear-Pending Bit" />
+        <BitField size="1" name="ISRPREEMPT" start="23" />
+        <BitField size="1" name="ISRPENDING" start="22" description="Interrupt Pending Flag" />
+        <BitField size="9" name="VECTPENDING" start="12" description="Vector Pending" />
+        <BitField size="1" name="RETTOBASE" start="11" description="Return to Base" />
+        <BitField size="9" name="VECTACTIVE" start="0" description="Active Exception Number" />
+      </Register>
+      <Register start="0xE000ED08" name="VTOR" aka="Vector_Table_Offset" description="Vector Table Offset Register">
+        <BitField size="1" name="TBLBASE" start="29" />
+        <BitField size="25" name="TBLOFF" start="7" />
+      </Register>
+      <Register start="0xE000ED0C" name="AIRCR" aka="Application_Interrupt_and_Reset_Control" description="Application Interrupt and Reset Control Register">
+        <BitField size="16" name="VECTKEY" start="16" description="Register Key" />
+        <BitField size="1" name="ENDIANESS" start="15" description="Data Endianness Bit" />
+        <BitField size="3" name="PRIGROUP" start="8" description="Interrupt Priority Grouping Field" />
+        <BitField size="1" name="SYSRESETREQ" start="2" description="System Reset Request" />
+        <BitField size="1" name="VECTCLRACTIVE" start="1" />
+        <BitField size="1" name="VECTRESET" start="0" />
+      </Register>
+      <Register start="0xE000ED10" name="SCR" aka="System_Control" description="System Control Register">
+        <BitField size="1" name="SEVONPEND" start="4" description="Send Event on Pending" />
+        <BitField size="1" name="SLEEPDEEP" start="2" description="Sleep or Deep Sleep" />
+        <BitField size="1" name="SLEEPONEXIT" start="1" description="Sleep on Exit" />
+      </Register>
+      <Register start="0xE000ED14" name="CCR" aka="Configuration_Control" description="Configuration and Control Register">
+        <BitField size="1" name="STKALIGN" start="9" description="Stack Alignment" />
+        <BitField size="1" name="BFHFNMIGN" start="8" description="Bus Fault Hard Fault and NMI Ignore" />
+        <BitField size="1" name="DIV_0_TRP" start="4" description="Divide by Zero Trap Enable" />
+        <BitField size="1" name="UNALIGN_TRP" start="3" description="Unaligned Access Trap Enable" />
+        <BitField size="1" name="USERSETMPEND" start="1" description="User Set Pending Enable" />
+        <BitField size="1" name="NONBASETHRDENA" start="0" description="Non Base Thread Mode Enable" />
+      </Register>
+      <Register start="0xE000ED18" name="SHPR1" aka="System_Handlers_4_7_Priority" description="System Handler Priority Register 1">
+        <BitField size="4" name="PRI_4(MemManage)" start="8-4" description="Priority of system handler 4, MemManage" />
+        <BitField size="4" name="PRI_5(BusFault)" start="16-4" description="Priority of system handler 5, BusFault" />
+        <BitField size="4" name="PRI_6(UsageFault)" start="24-4" description="Priority of system handler 6, UsageFault" />
+        <BitField size="4" name="PRI_7" start="32-4" />
+      </Register>
+      <Register start="0xE000ED1C" name="SHPR2" aka="System_Handlers_8_11_Priority" description="System Handler Priority Register 2">
+        <BitField size="4" name="PRI_8" start="8-4" />
+        <BitField size="4" name="PRI_9" start="16-4" />
+        <BitField size="4" name="PRI_10" start="24-4" />
+        <BitField size="4" name="PRI_11(SVCall)" start="32-4" description="Priority of system handler 11, SVCall" />
+      </Register>
+      <Register start="0xE000ED20" name="SHPR3" aka="System_Handlers_12_15_Priority" description="System Handler Priority Register 3">
+        <BitField size="4" name="PRI_12(DebugMonitor)" start="8-4" />
+        <BitField size="4" name="PRI_13" start="16-4" />
+        <BitField size="4" name="PRI_14(PendSV)" start="24-4" />
+        <BitField size="4" name="PRI_15(SysTick)" start="32-4" />
+      </Register>
+      <Register start="0xE000ED24" name="SHCSR" aka="System_Handler_Control_and_State" description="System Handler Control and State Register">
+        <BitField size="1" name="USGFAULTENA" start="18" description="UsageFault Enable Bit" />
+        <BitField size="1" name="BUSFAULTENA" start="17" description="BusFault Enable Bit" />
+        <BitField size="1" name="MEMFAULTENA" start="16" description="MemManage Enable Bit" />
+        <BitField size="1" name="SVCALLPENDED" start="15" description="SVCall Pending Bit" />
+        <BitField size="1" name="BUSFAULTPENDED" start="14" description="BusFault Exception Pending Bit" />
+        <BitField size="1" name="MEMFAULTPENDED" start="13" description="MemManage Exception Pending Bit" />
+        <BitField size="1" name="USGFAULTPENDED" start="12" description="UsageFault Exception Pending Bit" />
+        <BitField size="1" name="SYSTICKACT" start="11" description="SysTick Exception Active Bit" />
+        <BitField size="1" name="PENDSVACT" start="10" description="PendSV Exception Active Bit" />
+        <BitField size="1" name="MONITORACT" start="8" description="Debug Monitor Active Bit" />
+        <BitField size="1" name="SVCALLACT" start="7" description="SVCall Active Bit" />
+        <BitField size="1" name="USGFAULTACT" start="3" description="UsageFault Exception Active Bit" />
+        <BitField size="1" name="BUSFAULTACT" start="1" description="BusFault Exception Active Bit" />
+        <BitField size="1" name="MEMFAULTACT" start="0" description="MemManage Exception Active Bit" />
+      </Register>
+      <Register start="0xE000ED28" size="1" name="MMFSR" aka="Memory_Manage_Fault_Status">
+        <BitField size="1" name="MMARVALID" start="7" />
+        <BitField size="1" name="MSTKERR" start="4" />
+        <BitField size="1" name="MUNSTKERR" start="3" />
+        <BitField size="1" name="DACCVIOL" start="1" />
+        <BitField size="1" name="IACCVIOL" start="0" />
+      </Register>
+      <Register start="0xE000ED29" size="1" name="BFSR" aka="Bus_Fault_Status">
+        <BitField size="1" name="BFARVALID" start="7" />
+        <BitField size="1" name="STKERR" start="4" />
+        <BitField size="1" name="UNSTKERR" start="3" />
+        <BitField size="1" name="IMPRECISERR" start="2" />
+        <BitField size="1" name="PRECISERR" start="1" />
+        <BitField size="1" name="IBUSERR" start="0" />
+      </Register>
+      <Register start="0xE000ED2A" size="2" name="UFSR" aka="Usage_Fault_Status">
+        <BitField size="1" name="DIVBYZERO" start="9" />
+        <BitField size="1" name="UNALIGNED" start="8" />
+        <BitField size="1" name="NOCP" start="3" />
+        <BitField size="1" name="INVPC" start="2" />
+        <BitField size="1" name="INVSTATE" start="1" />
+        <BitField size="1" name="UNDEFINSTR" start="0" />
+      </Register>
+      <Register start="0xE000ED2C" name="HFSR" aka="Hard_Fault_Status">
+        <BitField size="1" name="DEBUGEVT" start="31" />
+        <BitField size="1" name="FORCED" start="30" />
+        <BitField size="1" name="VECTTBL" start="1" />
+      </Register>
+      <Register start="0xE000ED30" name="DFSR" aka="Debug_Fault_Status">
+        <BitField size="1" name="EXTERNAL" start="4" />
+        <BitField size="1" name="VCATCH" start="3" />
+        <BitField size="1" name="DWTTRAP" start="2" />
+        <BitField size="1" name="BKPT" start="1" />
+        <BitField size="1" name="HALTED" start="0" />
+      </Register>
+      <Register start="0xE000ED34" name="MMFAR" aka="Memory_Manage_Fault_Address" />
+      <Register start="0xE000ED38" name="BFAR" aka="Bus_Fault_Address" />
+      <Register start="0xE000ED3C" name="AFSR" aka="Auxillary_Fault_Address" />
+      <Register start="0xE000ED88" name="CPACR" description="Coprocessor Access Control Register">
+        <BitField size="2" name="CP0" start="0" />
+        <BitField size="2" name="CP1" start="2" />
+        <BitField size="2" name="CP2" start="4" />
+        <BitField size="2" name="CP3" start="6" />
+        <BitField size="2" name="CP4" start="8" />
+        <BitField size="2" name="CP5" start="10" />
+        <BitField size="2" name="CP6" start="12" />
+        <BitField size="2" name="CP7" start="14" />
+        <BitField size="2" name="CP10" start="20" />
+        <BitField size="2" name="CP11" start="22" />
+      </Register>
+    </RegisterGroup>
+    <RegisterGroup start="0xE000ED00" name="CPUID">
+      <Register start="0xE000ED00" name="CPUID" aka="CPUID_Base" access="ReadOnly" description="CPUID Base Register">
+        <BitField size="8" name="IMPLEMENTER" start="24" description="Implementer Code" />
+        <BitField size="4" name="VARIANT" start="20" description="Variant Number" />
+        <BitField size="12" name="PARTNO" start="4" description="Part Number" />
+        <BitField size="4" name="REVISION" start="0" description="Revision Number" />
+      </Register>
+      <Register start="0xE000ED40" name="ID_PFR0" aka="PFR0" access="ReadOnly" />
+      <Register start="0xE000ED44" name="ID_PFR1" aka="PFR1" access="ReadOnly" />
+      <Register start="0xE000ED48" name="ID_DFR0" aka="DFR0" access="ReadOnly" />
+      <Register start="0xE000ED4C" name="ID_AFR0" aka="AFR0" access="ReadOnly" />
+      <Register start="0xE000ED50" name="ID_MMFR0" aka="MMFR0" access="ReadOnly" />
+      <Register start="0xE000ED54" name="ID_MMFR1" aka="MMFR1" access="ReadOnly" />
+      <Register start="0xE000ED58" name="ID_MMFR2" aka="MMFR2" access="ReadOnly" />
+      <Register start="0xE000ED5C" name="ID_MMFR3" aka="MMFR3" access="ReadOnly" />
+      <Register start="0xE000ED60" name="ID_ISAR0" aka="ISAR0" access="ReadOnly" />
+      <Register start="0xE000ED64" name="ID_ISAR1" aka="ISAR1" access="ReadOnly" />
+      <Register start="0xE000ED68" name="ID_ISAR2" aka="ISAR2" access="ReadOnly" />
+      <Register start="0xE000ED6C" name="ID_ISAR3" aka="ISAR3" access="ReadOnly" />
+      <Register start="0xE000ED70" name="ID_ISAR4" aka="ISAR4" access="ReadOnly" />
+    </RegisterGroup>
+    <RegisterGroup start="0xE000ED90" name="MPU">
+      <Register start="0xE000ED90" name="MPU_TYPE" aka="MPU_Type" access="ReadOnly" description="MPU Type Register">
+        <BitField size="8" name="IREGION" start="16" description="Number of supported MPU instruction regions" />
+        <BitField size="8" name="DREGION" start="8" description="Number of supported MPU data regions" />
+        <BitField size="8" name="SEPARATE" start="0" description="Support for unified or separate instruction and date memory maps" />
+      </Register>
+      <Register start="0xE000ED94" name="MPU_CTRL" aka="MPU_Control" description="MPU Control Register">
+        <BitField size="1" name="PRIVDEFENA" start="2" description="Enables privileged software access to the default memory map" />
+        <BitField size="1" name="HFNMIENA" start="1" description="Enable the operation of MPU during hard fault, NMI, and FAULTMASK handlers" />
+        <BitField size="1" name="ENABLE" start="0" description="Enable MPU" />
+      </Register>
+      <Register start="0xE000ED98" name="MPU_RNR" aka="MPU_Region_Number" description="MPU Region Number Register">
+        <BitField size="8" name="REGION" start="0" />
+      </Register>
+      <Register start="0xE000ED9C" name="MPU_RBAR" aka="MPU_Region_Base_Address" description="MPU Region Base Address Register">
+        <BitField size="27" name="ADDR" start="5" description="Region base address field" />
+        <BitField size="1" name="VALID" start="4" description="MPU Region Number valid bit" />
+        <BitField size="4" name="REGION" start="0" description="MPU region field" />
+      </Register>
+      <Register start="0xE000EDA0" name="MPU_RASR" aka="MPU_Attribute_and_Size" description="MPU Region Attribute and Size Register">
+        <BitField size="1" name="XN" start="28" description="Instruction access disable bit" />
+        <BitField size="3" name="AP" start="24" description="Access permission field" />
+        <BitField size="3" name="TEX" start="19" description="Memory access attribute" />
+        <BitField size="1" name="S" start="18" description="Shareable bit" />
+        <BitField size="1" name="C" start="17" description="Memory access attribute" />
+        <BitField size="1" name="B" start="16" description="Memory access attribute" />
+        <BitField size="8" name="SRD" start="8" description="Subregion disable bits" />
+        <BitField size="5" name="SIZE" start="1" description="MPU protection region size" />
+        <BitField size="1" name="ENABLE" start="0" description="Region enable bit" />
+      </Register>
+    </RegisterGroup>
+    <RegisterGroup start="0xE000EDF0" name="CoreDebug">
+      <Register start="0xE000EDF0" name="DHCSR" />
+      <Register start="0xE000EDF4" name="DCRSR" />
+      <Register start="0xE000EDF8" name="DCRDR" />
+      <Register start="0xE000EDFC" name="DEMCR" />
+    </RegisterGroup>
+    <RegisterGroup start="0xE000EF00" name="SCB">
+      <Register start="0xE000EF00" name="STIR" aka="SCB_SW_TRIG" access="WriteOnly" description="Software Trigger Interrupt Register">
+        <BitField size="10" name="INTID" start="0" description="ID of the interrupt to trigger" />
+      </Register>
+    </RegisterGroup>
+    <RegisterGroup start="0xE000EFD0" name="ID_space">
+      <Register start="0xE000EFD0" size="1" name="PID4" access="ReadOnly" />
+      <Register start="0xE000EFD4" size="1" name="PID5" access="ReadOnly" />
+      <Register start="0xE000EFD8" size="1" name="PID6" access="ReadOnly" />
+      <Register start="0xE000EFDC" size="1" name="PID7" access="ReadOnly" />
+      <Register start="0xE000EFE0" size="1" name="PID0" access="ReadOnly" />
+      <Register start="0xE000EFE4" size="1" name="PID1" access="ReadOnly" />
+      <Register start="0xE000EFE8" size="1" name="PID2" access="ReadOnly" />
+      <Register start="0xE000EFEC" size="1" name="PID3" access="ReadOnly" />
+      <Register start="0xE000EFF0" size="1" name="CID0" access="ReadOnly" />
+      <Register start="0xE000EFF4" size="1" name="CID1" access="ReadOnly" />
+      <Register start="0xE000EFF8" size="1" name="CID2" access="ReadOnly" />
+      <Register start="0xE000EFFC" size="1" name="CID3" access="ReadOnly" />
+    </RegisterGroup>
+  </MemorySegment>
+</Root>

@@ -1,0 +1,85 @@
+<!DOCTYPE CrossStudio_Session_File>
+<session>
+ <Bookmarks/>
+ <Breakpoints/>
+ <ExecutionProfileWindow/>
+ <FrameBufferWindow>
+  <FrameBufferWindow addressText="" bufferWidth="-1" bufferHeight="-1" addressSpace="" />
+ </FrameBufferWindow>
+ <Memory1>
+  <MemoryWindow autoEvaluate="0" addressText="0x00200070" addressOrder="0" refreshPeriod="0" columnsText="" sizeText="8196" viewMode="0" dataSize="1" radix="16" name="Executable_1" addressSpace="" />
+ </Memory1>
+ <Memory2>
+  <MemoryWindow autoEvaluate="0" addressText="" addressOrder="0" refreshPeriod="0" columnsText="" sizeText="" viewMode="0" dataSize="1" radix="16" name="Executable_1" addressSpace="" />
+ </Memory2>
+ <Memory3>
+  <MemoryWindow autoEvaluate="0" addressText="" addressOrder="0" refreshPeriod="0" columnsText="" sizeText="" viewMode="0" dataSize="1" radix="16" name="Executable_1" addressSpace="" />
+ </Memory3>
+ <Memory4>
+  <MemoryWindow autoEvaluate="0" addressText="" addressOrder="0" refreshPeriod="0" columnsText="" sizeText="" viewMode="0" dataSize="1" radix="16" name="Executable_1" addressSpace="" />
+ </Memory4>
+ <Project>
+  <ProjectSessionItem path="Executable_1" name="unnamed" />
+  <ProjectSessionItem path="Executable_1;Executable_1" name="unnamed" />
+  <ProjectSessionItem path="Executable_1;Executable_1;Source Files" name="unnamed" />
+  <ProjectSessionItem path="Executable_1;Executable_1;System Files" name="unnamed" />
+ </Project>
+ <Register1>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/r13;CPU/r14;CPU/r15;CPU/cpsr;CPU/r8_fiq;CPU/r9_fiq;CPU/r10_fiq;CPU/r11_fiq;CPU/r12_fiq;CPU/r13_fiq;CPU/r14_fiq;CPU/spsr_fiq;CPU/r13_svc;CPU/r14_svc;CPU/spsr_svc;CPU/r13_abt;CPU/r14_abt;CPU/spsr_abt;CPU/r13_irq;CPU/r14_irq;CPU/spsr_irq;CPU/r13_und;CPU/r14_und;CPU/spsr_und" name="Executable_1" />
+ </Register1>
+ <Register2>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/r13;CPU/r14;CPU/r15;CPU/cpsr;CPU/r8_fiq;CPU/r9_fiq;CPU/r10_fiq;CPU/r11_fiq;CPU/r12_fiq;CPU/r13_fiq;CPU/r14_fiq;CPU/spsr_fiq;CPU/r13_svc;CPU/r14_svc;CPU/spsr_svc;CPU/r13_abt;CPU/r14_abt;CPU/spsr_abt;CPU/r13_irq;CPU/r14_irq;CPU/spsr_irq;CPU/r13_und;CPU/r14_und;CPU/spsr_und" name="Executable_1" />
+ </Register2>
+ <Register3>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/r13;CPU/r14;CPU/r15;CPU/cpsr;CPU/r8_fiq;CPU/r9_fiq;CPU/r10_fiq;CPU/r11_fiq;CPU/r12_fiq;CPU/r13_fiq;CPU/r14_fiq;CPU/spsr_fiq;CPU/r13_svc;CPU/r14_svc;CPU/spsr_svc;CPU/r13_abt;CPU/r14_abt;CPU/spsr_abt;CPU/r13_irq;CPU/r14_irq;CPU/spsr_irq;CPU/r13_und;CPU/r14_und;CPU/spsr_und" name="Executable_1" />
+ </Register3>
+ <Register4>
+  <RegisterWindow openNodes="CPU - Current Context" binaryNodes="" unsignedNodes="" decimalNodes="" octalNodes="" asciiNodes="" visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/r13;CPU/r14;CPU/r15;CPU/cpsr;CPU/r8_fiq;CPU/r9_fiq;CPU/r10_fiq;CPU/r11_fiq;CPU/r12_fiq;CPU/r13_fiq;CPU/r14_fiq;CPU/spsr_fiq;CPU/r13_svc;CPU/r14_svc;CPU/spsr_svc;CPU/r13_abt;CPU/r14_abt;CPU/spsr_abt;CPU/r13_irq;CPU/r14_irq;CPU/spsr_irq;CPU/r13_und;CPU/r14_und;CPU/spsr_und" name="Executable_1" />
+ </Register4>
+ <TargetWindow programAction="" uploadFileType="" programLoadAddress="" programSize="" uploadFileName="" uploadMemoryInterface="" programFileName="" uploadStartAddress="" programFileType="" uploadSize="" programMemoryInterface="" />
+ <TraceWindow>
+  <Trace enabled="Yes" />
+ </TraceWindow>
+ <Watch1>
+  <Watches active="1" update="Twice a Second" >
+   <Watchpoint linenumber="333" radix="10" name="d" expression="d" filename="main.c" />
+   <Watchpoint evalMode="1" linenumber="167" evalType="1" radix="16" name="gPos" expression="gPos" filename="main.c" />
+   <Watchpoint linenumber="167" radix="1" name="buffer" expression="buffer" filename="main.c" />
+   <Watchpoint linenumber="454" radix="11" name="gUartState" expression="gUartState" filename="main.c" />
+   <Watchpoint evalMode="0" linenumber="454" evalType="1" radix="-1" name="pwm" expression="pwm" filename="main.c" />
+   <Watchpoint evalMode="2" linenumber="452" numelements="100" evalType="0" radix="1" name="atcmd" expression="atcmd" filename="main.c" />
+  </Watches>
+ </Watch1>
+ <Watch2>
+  <Watches active="0" update="Never" />
+ </Watch2>
+ <Watch3>
+  <Watches active="0" update="Never" />
+ </Watch3>
+ <Watch4>
+  <Watches active="0" update="Never" />
+ </Watch4>
+ <Files>
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/AIC.c" y="0" path="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/AIC.c" left="0" selected="0" name="unnamed" top="329" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/AIC_irq_handler.s" y="57" path="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/AIC_irq_handler.s" left="0" selected="0" name="unnamed" top="53" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/AT91SAM7_Startup.s" y="29" path="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/AT91SAM7_Startup.s" left="0" selected="0" name="unnamed" top="25" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/include/targets/AT91SAM7.h" y="76" path="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/include/targets/AT91SAM7.h" left="0" selected="0" name="unnamed" top="43" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="at91sam7s256.h" y="2113" path="at91sam7s256.h" left="0" selected="0" name="unnamed" top="2109" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/source/crt0.s" y="305" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/source/crt0.s" left="0" selected="0" name="unnamed" top="26" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/ctl_at91sam7.c" y="22" path="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/targets/Atmel_AT91SAM7/ctl_at91sam7.c" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/include/libarm.h" y="36" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/include/libarm.h" left="0" selected="0" name="unnamed" top="24" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/include/ctl_api.h" y="92" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/include/ctl_api.h" left="0" selected="0" name="unnamed" top="70" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="lib_AT91SAM7S256.h" y="488" path="lib_AT91SAM7S256.h" left="0" selected="0" name="unnamed" top="484" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/include/targets/AT91SAM7S256.h" y="6891" path="../../AppData/Local/Rowley Associates Limited/CrossWorks for ARM/v3/packages/include/targets/AT91SAM7S256.h" left="0" selected="0" name="unnamed" top="6883" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/include/string.h" y="401" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.5/include/string.h" left="0" selected="0" name="unnamed" top="377" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="12" debugPath="main.c" y="379" path="main.c" left="0" selected="1" name="unnamed" top="307" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/ctl_api.h" y="92" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/ctl_api.h" left="0" selected="0" name="unnamed" top="88" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/string.h" y="397" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/string.h" left="0" selected="0" name="unnamed" top="393" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/stdlib.h" y="177" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/stdlib.h" left="0" selected="0" name="unnamed" top="173" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/__cross_studio_io.h" y="10" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/__cross_studio_io.h" left="0" selected="0" name="unnamed" top="0" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/debugio.h" y="0" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/debugio.h" left="0" selected="0" name="unnamed" top="616" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/stdio.h" y="681" path="C:/Program Files (x86)/Rowley Associates Limited/CrossWorks for ARM 3.6/include/stdio.h" left="0" selected="0" name="unnamed" top="677" />
+  <SessionOpenFile useTextEdit="1" useBinaryEdit="0" codecName="Default" x="0" debugPath="index.h" y="3" path="index.h" left="0" selected="0" name="unnamed" top="0" />
+ </Files>
+ <ARMCrossStudioWindow activeProject="Executable_1" autoConnectTarget="SEGGER J-Link" debugSearchFileMap="" fileDialogInitialDirectory="" fileDialogDefaultFilter="*.c" autoConnectCapabilities="1151" debugSearchPath="" buildConfiguration="ARM Flash Debug" />
+</session>
